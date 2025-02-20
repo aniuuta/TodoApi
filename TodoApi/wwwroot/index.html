@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Работа с категориями</title>
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+    <h1>Поработайте с категориями</h1>
+<h3>Добавь категории по уму</h3>
+<form action="javascript:void(0);" method="POST" onsubmit="addCategory()">
+    <input type="text" id="add-title" placeholder="New category">
+    <input type="submit" value="Add">
+</form>
+
+<h3>Добавить вид</h3>
+<form action="javascript:void(0);" method="POST" onsubmit="addItem()">
+    <input type="text" id="add-name" placeholder="New to-do">
+    <select id="add-category">
+    </select>
+    <input type="submit" value="Add">
+</form>
+
+<h3>Редактировать категорию</h3>
+<form action="javascript:void(0);" method="POST" onsubmit="updateCategory()">
+    <select id="edit-category">
+    </select>
+    <input type="text" id="edit-title" placeholder="Change title">
+    <input type="submit" value="Change">
+    <input type="submit" value="Delete" onclick="deleteCategory()">
+</form>
+
+<div id="editForm">
+    <h3>Редактировать</h3>
+    <form action="javascript:void(0);" onsubmit="updateItem()">
+        <input type="hidden" id="edit-id">
+        <input type="checkbox" id="edit-isComplete">
+        <input type="text" id="edit-name">
+        <select id="edit-item-category">
+        </select>
+        <input type="submit" value="Save">
+        <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+    </form>
+</div>
+
+<p id="counter"></p>
+
+<table>
+    <tr>
+        <th>Готово?</th>
+        <th>Название</th>
+        <th>Категория</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tbody id="todos"></tbody>
+</table>
+
+<script src="js/site.js" asp-append-version="true"></script>
+<script type="text/javascript">
+    getItems();
+    getCategories();
+</script>
+</body>
+</html>
